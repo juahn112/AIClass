@@ -27,5 +27,18 @@ class MultilayerPerceptron:
         return current_input
     
     def calculate_loss(self, prediction, target):
-        mse = np.mean((prediction - target) ** 2)
-        return mse
+        loss = np.mean((prediction - target) ** 2)
+        return loss
+
+if __name__ == "__main__":
+    layer_list = [3, 5, 2]
+    mlp = MultilayerPerceptron(layer_list)
+
+    input_data = np.array([0.5, 0.2, 0.1])
+    target = np.array([0.7, 0.3])
+
+    prediction = mlp.forward(input_data)
+    loss = mlp.calculate_loss(prediction, target)
+
+    print("Prediction:", prediction)
+    print("Loss:", loss)
