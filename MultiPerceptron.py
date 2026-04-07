@@ -17,7 +17,7 @@ class MultilayerPerceptron: # 다층 퍼셉트론 클래스 정의
         self.num_layer = len(self.weight_list) # 층의 수 (입력층 제외), 가중치 리스트의 길이로 계산(입력층은 가중치가 없으므로), 가중치는 층과 층 사이에 존재하기 때문에, 가중치 리스트의 길이는 모든 층 - 1과 같다
     
     def forward(self, input_data): # 순전파 메서드, input_data는 입력 데이터
-        self.activations = [] # 각 층의 활성화 값을 담는 리스트, 순전파 과정에서 각 층의 활성화 값을 저장하기 위해 사용
+        self.activations = [input_data] # 각 층의 활성화 값을 담는 리스트, 순전파 과정에서 각 층의 활성화 값을 저장하기 위해 사용
         current_input = input_data # 현재 입력값을 초기 입력 데이터로 설정
         for i in range(self.num_layer): # 각 층에 대해 순전파 계산, 가중치와 편향을 사용하여 출력값을 계산하고, ReLU 활성화 함수를 적용하여 다음 층의 입력값으로 설정, 층과 층 사이에서 가중치와 편향이 존재하기 때문에, 가중치 리스트의 길이만큼 반복
             weight = self.weight_list[i] # 현재 층의 가중치
