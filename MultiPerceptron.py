@@ -33,7 +33,7 @@ class MultilayerPerceptron: # 다층 퍼셉트론 클래스 정의
         loss = np.mean((prediction - target) ** 2) # 평균 제곱 오차(MSE) 손실 계산, 예측값과 실제 값의 차이를 제곱하여 평균을 구함
         return loss # 계산된 손실값 반환
     
-    def backward(self, input_data, target, learning_rate=0.01): # 역전파 메서드, input_data는 입력 데이터, target은 실제 값(정답), learning_rate는 학습률
+    def backward(self, target, learning_rate=0.01): # 역전파 메서드, input_data는 입력 데이터, target은 실제 값(정답), learning_rate는 학습률
         
         pass 
 
