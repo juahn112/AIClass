@@ -33,9 +33,14 @@ class MultilayerPerceptron: # 다층 퍼셉트론 클래스 정의
         loss = np.mean((prediction - target) ** 2) # 평균 제곱 오차(MSE) 손실 계산, 예측값과 실제 값의 차이를 제곱하여 평균을 구함
         return loss # 계산된 손실값 반환
     
-    def backward(self, target, learning_rate=0.01): # 역전파 메서드, input_data는 입력 데이터, target은 실제 값(정답), learning_rate는 학습률
+    def backward(self, target, learning_rate=0.01): # 역전파 메서드,  target은 실제 값(정답), learning_rate는 학습률
+        prediction = self.activations[-1] # 출력층의 마지막 활성화 값(예측값)을 가져옴
+        error = 2 * (prediction - target) / len(target) # 예측값과 실제 값의 차이 계산
+        for i in reversed(range(self.num_layer)):
+            prev_input = self.activations[i] # 이전 층의 활성화 값(입력값)을 가져옴
+            
+            
         
-        pass 
 
 if __name__ == "__main__": # 메인 블록, 이 부분은 모듈이 직접 실행될 때만 실행됨(테스트 코드)
     layer_list = [3, 5, 2] # 입력층 3개 노드, 은닉층 5개 노드, 출력층 2개 노드로 구성된 다층 퍼셉트론 모델을 생성하기 위한 층 리스트
